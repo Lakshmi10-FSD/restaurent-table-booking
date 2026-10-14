@@ -2,7 +2,7 @@
 
 A modern, elegant, and responsive restaurant website built using **HTML5 and Tailwind CSS**. Olive & Thyme showcases a beautiful restaurant experience with a stylish homepage, restaurant story, food menu, special offers, and table reservation section.
 
-## ✨ Features
+
 
 - 🏠 **Home Page** – Attractive hero section with a background image and welcome message.
 - 🌿 **Our Story** – Introduction to the restaurant and its philosophy.
