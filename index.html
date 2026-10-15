@@ -2,364 +2,681 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olive & Thyme | Restaurant</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Olive & Thyme — fresh flavours, seasonal ingredients, and memorable dining.">
+  <title>Olive & Thyme | Restaurant</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'DM Sans', sans-serif;
-        }
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3, .brand { font-family: 'Playfair Display', serif; }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+    .hero-bg {
+      background:
+        linear-gradient(90deg, rgba(15,35,25,.92), rgba(15,35,25,.25)),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=90');
+      background-size: cover;
+      background-position: center;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    .filter-btn {
+      border: 1px solid #d9d5c8;
+      color: #294b36;
+      transition: .25s;
+    }
 
-        .hero-bg {
-            background:
-                linear-gradient(90deg, rgba(15, 35, 25, 0.92), rgba(15, 35, 25, 0.25)),
-                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=90');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #294b36;
+      color: white;
+      border-color: #294b36;
+    }
+
+    .menu-card { animation: appear .35s ease both; }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    input, select, textarea { color: #243b2c; }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #b27a42;
+      outline-offset: 1px;
+    }
+  </style>
 </head>
 
 <body class="bg-[#faf8f1] text-[#243b2c]">
 
-    <!-- Navbar -->
-    <header class="bg-[#faf8f1] sticky top-0 z-50 border-b border-[#e7e3d7]">
-        <nav class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-[#faf8f1] border-b border-[#e7e3d7]">
+    <nav class="max-w-7xl mx-auto px-5 md:px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="brand text-2xl font-bold tracking-tight">
+        olive<span class="text-[#b27a42]">&</span>thyme
+        <span class="block font-sans text-[9px] tracking-[4px] uppercase font-medium text-gray-500">
+          Kitchen & Garden
+        </span>
+      </a>
 
-            <a href="#" class="text-2xl font-bold tracking-tight">
-                olive<span class="text-[#b27a42]">&</span>thyme
-                <p class="text-[10px] tracking-[4px] uppercase font-medium text-gray-500">
-                    Kitchen & Garden
-                </p>
-            </a>
+      <!-- Desktop navigation -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="#home" class="hover:text-[#b27a42]">Home</a>
+        <a href="#story" class="hover:text-[#b27a42]">Our Story</a>
+        <a href="#menu" class="hover:text-[#b27a42]">Menu</a>
+        <a href="#special" class="hover:text-[#b27a42]">Specials</a>
+        <a href="#reservation" class="hover:text-[#b27a42]">Contact</a>
+      </div>
 
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#home" class="hover:text-[#b27a42]">Home</a>
-                <a href="#story" class="hover:text-[#b27a42]">Our Story</a>
-                <a href="#menu" class="hover:text-[#b27a42]">Menu</a>
-                <a href="#special" class="hover:text-[#b27a42]">Specials</a>
-            </div>
-
-            <a href="#reservation"
-               class="bg-[#294b36] hover:bg-[#1c3827] text-white px-5 py-3 rounded-full text-sm font-semibold transition">
-                Reserve a Table ↗
-            </a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-[620px] md:min-h-[690px] flex items-center">
-        <div class="max-w-7xl mx-auto px-6 py-20 w-full">
-
-            <div class="max-w-2xl text-white">
-
-                <p class="uppercase tracking-[5px] text-sm text-[#e9c18e] mb-7">
-                    Fresh from our kitchen
-                </p>
-
-                <h1 class="text-5xl md:text-7xl leading-tight font-semibold">
-                    A little taste<br>
-                    of <span class="italic text-[#e9c18e]">happiness.</span>
-                </h1>
-
-                <p class="mt-7 text-gray-200 text-base md:text-lg leading-8 max-w-lg">
-                    Seasonal ingredients, beautiful flavours, and meals
-                    made to bring people together. Welcome to your new
-                    favourite place.
-                </p>
-
-                <div class="flex flex-wrap gap-4 mt-9">
-                    <a href="#menu"
-                       class="bg-[#e9c18e] hover:bg-white text-[#203b2a] px-7 py-4 rounded-full font-bold transition">
-                        Explore Our Menu →
-                    </a>
-
-                    <a href="#story"
-                       class="border border-white/70 hover:bg-white hover:text-[#203b2a] px-7 py-4 rounded-full font-semibold transition">
-                        Discover Our Story
-                    </a>
-                </div>
-
-                <div class="flex items-center gap-4 mt-12">
-                    <div class="flex -space-x-3">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100"
-                             class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Guest">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
-                             class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Guest">
-                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100"
-                             class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Guest">
-                    </div>
-
-                    <div>
-                        <p class="text-[#e9c18e] tracking-widest">★★★★★</p>
-                        <p class="text-sm text-gray-200">Made with love, served with care</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="max-w-7xl mx-auto px-6 py-12">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-
-            <div class="flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-[#ded9cb] pb-6 sm:pb-0">
-                <div class="text-3xl">🌿</div>
-                <div>
-                    <h3 class="font-bold text-lg">Fresh Ingredients</h3>
-                    <p class="text-gray-500 text-sm mt-1">Locally sourced goodness</p>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-[#ded9cb] pb-6 sm:pb-0 sm:pl-5">
-                <div class="text-3xl">👨‍🍳</div>
-                <div>
-                    <h3 class="font-bold text-lg">Expert Chefs</h3>
-                    <p class="text-gray-500 text-sm mt-1">Crafted with passion</p>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-4 sm:pl-5">
-                <div class="text-3xl">🕯️</div>
-                <div>
-                    <h3 class="font-bold text-lg">Cozy Atmosphere</h3>
-                    <p class="text-gray-500 text-sm mt-1">Feel right at home</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Story Section -->
-    <section id="story" class="max-w-7xl mx-auto px-6 py-16 md:py-24">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-
-            <div class="relative">
-                <img
-                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85"
-                    alt="Beautiful restaurant dining table"
-                    class="w-full h-[400px] md:h-[500px] object-cover rounded-2xl">
-
-                <div class="absolute -bottom-5 -right-3 md:-right-5 bg-[#e9c18e] p-5 md:p-7 rounded-xl shadow-lg">
-                    <p class="text-3xl font-bold">100%</p>
-                    <p class="text-sm mt-1">Made with love</p>
-                </div>
-            </div>
-
-            <div class="md:pl-8 mt-5 md:mt-0">
-                <p class="text-[#a56d37] uppercase tracking-[4px] text-xs font-bold mb-5">
-                    A place to slow down
-                </p>
-
-                <h2 class="text-4xl md:text-5xl leading-tight font-semibold">
-                    Good food brings<br>
-                    <span class="italic text-[#a56d37]">us together.</span>
-                </h2>
-
-                <p class="text-gray-600 leading-8 mt-6">
-                    At Olive & Thyme, we believe every meal deserves
-                    something special. Our kitchen combines fresh
-                    ingredients, thoughtful recipes, and warm hospitality
-                    to make every visit memorable.
-                </p>
-
-                <p class="text-gray-600 leading-8 mt-3">
-                    Whether it is a family dinner, a friendly catch-up,
-                    or a celebration, there is always a seat waiting for you.
-                </p>
-
-                <a href="#reservation"
-                   class="inline-block mt-8 border-b-2 border-[#294b36] pb-2 font-bold hover:text-[#a56d37] transition">
-                    Come dine with us →
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="bg-[#f0eee4] py-20 md:py-24">
-        <div class="max-w-7xl mx-auto px-6">
-
-            <div class="text-center max-w-xl mx-auto mb-12">
-                <p class="text-[#a56d37] uppercase tracking-[4px] text-xs font-bold mb-4">
-                    From our kitchen
-                </p>
-                <h2 class="text-4xl md:text-5xl font-semibold">A menu to fall for</h2>
-                <p class="text-gray-600 mt-4 leading-7">
-                    Simple ingredients, thoughtful cooking, and flavours
-                    you'll want to come back for.
-                </p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-
-                <!-- Dish 1 -->
-                <article class="bg-white rounded-2xl overflow-hidden group shadow-sm hover:shadow-xl transition">
-                    <div class="overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85"
-                             alt="Fresh pasta dish"
-                             class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center gap-3">
-                            <h3 class="text-2xl font-semibold">Garden Pasta</h3>
-                            <span class="text-[#a56d37] font-bold">₹299</span>
-                        </div>
-                        <p class="text-gray-500 text-sm leading-6 mt-3">
-                            Fresh herbs, seasonal vegetables, and a delicious
-                            homemade sauce.
-                        </p>
-                        <p class="text-[#a56d37] mt-4 text-sm">✦ Chef's favourite</p>
-                    </div>
-                </article>
-
-                <!-- Dish 2 -->
-                <article class="bg-white rounded-2xl overflow-hidden group shadow-sm hover:shadow-xl transition">
-                    <div class="overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=85"
-                             alt="Fresh healthy bowl"
-                             class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center gap-3">
-                            <h3 class="text-2xl font-semibold">Harvest Bowl</h3>
-                            <span class="text-[#a56d37] font-bold">₹249</span>
-                        </div>
-                        <p class="text-gray-500 text-sm leading-6 mt-3">
-                            A colourful bowl of fresh greens, grains, and
-                            seasonal goodness.
-                        </p>
-                        <p class="text-[#a56d37] mt-4 text-sm">✦ Fresh & wholesome</p>
-                    </div>
-                </article>
-
-                <!-- Dish 3 -->
-                <article class="bg-white rounded-2xl overflow-hidden group shadow-sm hover:shadow-xl transition">
-                    <div class="overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=85"
-                             alt="Freshly baked pizza"
-                             class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center gap-3">
-                            <h3 class="text-2xl font-semibold">Classic Pizza</h3>
-                            <span class="text-[#a56d37] font-bold">₹349</span>
-                        </div>
-                        <p class="text-gray-500 text-sm leading-6 mt-3">
-                            Golden crust, rich tomato sauce, melted cheese,
-                            and aromatic herbs.
-                        </p>
-                        <p class="text-[#a56d37] mt-4 text-sm">✦ Crowd favourite</p>
-                    </div>
-                </article>
-
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="#reservation"
-                   class="inline-block bg-[#294b36] hover:bg-[#1c3827] text-white px-8 py-4 rounded-full font-semibold transition">
-                    Reserve Your Experience →
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Special Offer -->
-    <section id="special" class="max-w-7xl mx-auto px-6 py-20">
-        <div class="bg-[#294b36] text-white rounded-3xl overflow-hidden grid md:grid-cols-2 items-center">
-
-            <div class="p-8 md:p-14">
-                <p class="uppercase tracking-[4px] text-xs text-[#e9c18e] font-bold">
-                    Make it a special evening
-                </p>
-
-                <h2 class="text-4xl md:text-5xl leading-tight mt-5">
-                    Your next favourite<br>
-                    <span class="italic text-[#e9c18e]">meal awaits.</span>
-                </h2>
-
-                <p class="text-gray-200 leading-7 mt-6">
-                    Gather your favourite people around the table.
-                    Good conversations and great food are waiting.
-                </p>
-
-                <a href="#reservation"
-                   class="inline-block bg-[#e9c18e] hover:bg-white text-[#203b2a] px-7 py-4 rounded-full font-bold mt-8 transition">
-                    Plan Your Visit ↗
-                </a>
-            </div>
-
-            <img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1000&q=85"
-                 alt="Beautifully presented meal"
-                 class="w-full h-72 md:h-full min-h-[350px] object-cover">
-        </div>
-    </section>
-
-    <!-- Reservation CTA -->
-    <section id="reservation" class="bg-[#e9e4d6] py-16 px-6 text-center">
-        <p class="text-[#a56d37] uppercase tracking-[4px] text-xs font-bold">
-            Your table is waiting
-        </p>
-
-        <h2 class="text-4xl md:text-5xl mt-4 font-semibold">
-            Let's make it memorable.
-        </h2>
-
-        <p class="text-gray-600 mt-4 max-w-lg mx-auto leading-7">
-            Planning a dinner or a special get-together?
-            Get in touch and let us help you plan your visit.
-        </p>
-
-        <a href="mailto:hello@example.com?subject=Restaurant%20Reservation"
-           class="inline-block bg-[#294b36] hover:bg-[#1c3827] text-white px-8 py-4 rounded-full font-semibold mt-8 transition">
-            Enquire About a Table →
+      <div class="flex items-center gap-3">
+        <a href="#reservation"
+           class="hidden sm:inline-block bg-[#294b36] hover:bg-[#1c3827] text-white px-5 py-3 rounded-full text-sm font-semibold transition">
+          Reserve a Table ↗
         </a>
+
+        <!-- Mobile menu button -->
+        <button id="menuToggle"
+          class="md:hidden w-11 h-11 rounded-full border border-[#ded9cb] text-2xl flex items-center justify-center"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu">
+          ☰
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile navigation -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-5">
+      <div class="flex flex-col gap-4 text-sm font-medium border-t border-[#e7e3d7] pt-4">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#story" class="mobile-link">Our Story</a>
+        <a href="#menu" class="mobile-link">Menu</a>
+        <a href="#special" class="mobile-link">Specials</a>
+        <a href="#reservation" class="mobile-link">Reserve a Table ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero-bg min-h-[570px] md:min-h-[680px] flex items-center">
+      <div class="max-w-7xl mx-auto px-6 py-20 w-full">
+        <div class="max-w-2xl text-white">
+          <p class="uppercase tracking-[4px] text-xs md:text-sm text-[#e9c18e] mb-7">
+            Fresh from our kitchen
+          </p>
+
+          <h1 class="text-5xl sm:text-6xl md:text-7xl leading-tight font-semibold">
+            A little taste<br>
+            of <span class="italic text-[#e9c18e]">happiness.</span>
+          </h1>
+
+          <p class="mt-7 text-gray-200 text-base md:text-lg leading-8 max-w-lg">
+            Seasonal ingredients, beautiful flavours, and meals made to
+            bring people together. Welcome to your new favourite place.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mt-9">
+            <a href="#menu"
+               class="bg-[#e9c18e] hover:bg-white text-[#203b2a] px-6 py-4 rounded-full font-bold transition">
+              Explore Our Menu →
+            </a>
+            <a href="#story"
+               class="border border-white/70 hover:bg-white hover:text-[#203b2a] px-6 py-4 rounded-full font-semibold transition">
+              Discover Our Story
+            </a>
+          </div>
+
+          <div class="flex items-center gap-4 mt-12">
+            <div class="flex -space-x-3">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100"
+                   class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Restaurant guest">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
+                   class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Restaurant guest">
+              <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100"
+                   class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Restaurant guest">
+            </div>
+            <div>
+              <p class="text-[#e9c18e] tracking-widest">★★★★★</p>
+              <p class="text-sm text-gray-200">Made with love, served with care</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#172b20] text-white px-6 py-10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+    <!-- FEATURES -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div class="flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-[#ded9cb] pb-6 sm:pb-0">
+          <div class="text-3xl">🌿</div>
+          <div>
+            <h3 class="font-bold text-lg">Fresh Ingredients</h3>
+            <p class="text-gray-500 text-sm mt-1">Locally sourced goodness</p>
+          </div>
+        </div>
 
+        <div class="flex items-center gap-4 border-b sm:border-b-0 sm:border-r border-[#ded9cb] pb-6 sm:pb-0 sm:pl-5">
+          <div class="text-3xl">👨‍🍳</div>
+          <div>
+            <h3 class="font-bold text-lg">Expert Chefs</h3>
+            <p class="text-gray-500 text-sm mt-1">Crafted with passion</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 sm:pl-5">
+          <div class="text-3xl">🕯️</div>
+          <div>
+            <h3 class="font-bold text-lg">Cozy Atmosphere</h3>
+            <p class="text-gray-500 text-sm mt-1">Feel right at home</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section id="story" class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85"
+               alt="Beautiful restaurant dining table"
+               class="w-full h-[400px] md:h-[500px] object-cover rounded-2xl">
+
+          <div class="absolute -bottom-5 right-3 md:-right-5 bg-[#e9c18e] p-5 md:p-7 rounded-xl shadow-lg">
+            <p class="text-3xl font-bold">100%</p>
+            <p class="text-sm mt-1">Made with love</p>
+          </div>
+        </div>
+
+        <div class="md:pl-8 mt-5 md:mt-0">
+          <p class="text-[#a56d37] uppercase tracking-[4px] text-xs font-bold mb-5">
+            A place to slow down
+          </p>
+          <h2 class="text-4xl md:text-5xl leading-tight font-semibold">
+            Good food brings<br>
+            <span class="italic text-[#a56d37]">us together.</span>
+          </h2>
+          <p class="text-gray-600 leading-8 mt-6">
+            At Olive & Thyme, we believe every meal deserves something
+            special. Our kitchen combines fresh ingredients, thoughtful
+            recipes, and warm hospitality to make every visit memorable.
+          </p>
+          <p class="text-gray-600 leading-8 mt-3">
+            Whether it is a family dinner, a friendly catch-up, or a
+            celebration, there is always a seat waiting for you.
+          </p>
+          <a href="#reservation"
+             class="inline-block mt-8 border-b-2 border-[#294b36] pb-2 font-bold hover:text-[#a56d37] transition">
+            Come dine with us →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU WITH CATEGORY FILTERS -->
+    <section id="menu" class="bg-[#f0eee4] py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <p class="text-[#a56d37] uppercase tracking-[4px] text-xs font-bold mb-4">
+            From our kitchen
+          </p>
+          <h2 class="text-4xl md:text-5xl font-semibold">A menu to fall for</h2>
+          <p class="text-gray-600 mt-4 leading-7">
+            Simple ingredients, thoughtful cooking, and flavours you'll
+            want to come back for.
+          </p>
+        </div>
+
+        <!-- Category buttons -->
+        <div id="categoryFilters"
+             class="flex flex-wrap justify-center gap-3 mb-10"
+             aria-label="Filter menu by category">
+          <button type="button" data-category="All"
+                  class="filter-btn active px-5 py-2.5 rounded-full text-sm font-semibold">All</button>
+          <button type="button" data-category="Starters"
+                  class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold">Starters</button>
+          <button type="button" data-category="Main Course"
+                  class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold">Main Course</button>
+          <button type="button" data-category="Desserts"
+                  class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold">Desserts</button>
+          <button type="button" data-category="Drinks"
+                  class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold">Drinks</button>
+        </div>
+
+        <!-- JavaScript inserts the food cards here -->
+        <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+
+        <p id="menuEmpty" class="hidden text-center text-gray-500 py-10">
+          No dishes found in this category.
+        </p>
+
+        <div class="text-center mt-12">
+          <a href="#reservation"
+             class="inline-block bg-[#294b36] hover:bg-[#1c3827] text-white px-8 py-4 rounded-full font-semibold transition">
+            Reserve Your Experience →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIAL OFFER -->
+    <section id="special" class="max-w-7xl mx-auto px-6 py-20">
+      <div class="bg-[#294b36] text-white rounded-3xl overflow-hidden grid md:grid-cols-2 items-center">
+        <div class="p-8 md:p-14">
+          <p class="uppercase tracking-[4px] text-xs text-[#e9c18e] font-bold">
+            Make it a special evening
+          </p>
+          <h2 class="text-4xl md:text-5xl leading-tight mt-5">
+            Your next favourite<br>
+            <span class="italic text-[#e9c18e]">meal awaits.</span>
+          </h2>
+          <p class="text-gray-200 leading-7 mt-6">
+            Gather your favourite people around the table. Good
+            conversations and great food are waiting.
+          </p>
+          <a href="#reservation"
+             class="inline-block bg-[#e9c18e] hover:bg-white text-[#203b2a] px-7 py-4 rounded-full font-bold mt-8 transition">
+            Plan Your Visit ↗
+          </a>
+        </div>
+        <img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1000&q=85"
+             alt="Beautifully presented restaurant meal"
+             class="w-full h-72 md:h-full min-h-[350px] object-cover">
+      </div>
+    </section>
+
+    <!-- TABLE RESERVATION FORM -->
+    <section id="reservation" class="bg-[#e9e4d6] py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="text-[#a56d37] uppercase tracking-[4px] text-xs font-bold">
+            Your table is waiting
+          </p>
+          <h2 class="text-4xl md:text-5xl mt-4 font-semibold">
+            Let's make it memorable.
+          </h2>
+          <p class="text-gray-600 mt-4 max-w-lg mx-auto leading-7">
+            Fill in the details below to request your restaurant table.
+          </p>
+        </div>
+
+        <form id="bookingForm" class="bg-[#faf8f1] rounded-2xl shadow-sm p-6 md:p-10 space-y-6">
+          <div class="grid sm:grid-cols-2 gap-5">
             <div>
-                <h2 class="text-3xl font-semibold">
-                    olive<span class="text-[#e9c18e]">&</span>thyme
-                </h2>
-                <p class="text-gray-400 text-sm mt-3">
-                    Fresh flavours. Warm memories.
-                </p>
+              <label for="guestName" class="block text-sm font-semibold mb-2">Full Name *</label>
+              <input id="guestName" name="guestName" type="text" required maxlength="80"
+                     autocomplete="name" placeholder="Enter your name"
+                     class="w-full border border-[#ded9cb] rounded-xl px-4 py-3 bg-white">
             </div>
 
             <div>
-                <p class="font-semibold">Find your way</p>
-                <div class="flex flex-wrap gap-5 mt-4 text-sm text-gray-300">
-                    <a href="#home" class="hover:text-[#e9c18e]">Home</a>
-                    <a href="#story" class="hover:text-[#e9c18e]">Our Story</a>
-                    <a href="#menu" class="hover:text-[#e9c18e]">Menu</a>
-                    <a href="#reservation" class="hover:text-[#e9c18e]">Contact</a>
-                </div>
+              <label for="guestEmail" class="block text-sm font-semibold mb-2">Email Address *</label>
+              <input id="guestEmail" name="guestEmail" type="email" required maxlength="120"
+                     autocomplete="email" placeholder="you@example.com"
+                     class="w-full border border-[#ded9cb] rounded-xl px-4 py-3 bg-white">
             </div>
 
-        </div>
+            <div>
+              <label for="bookingDate" class="block text-sm font-semibold mb-2">Booking Date *</label>
+              <input id="bookingDate" name="bookingDate" type="date" required
+                     class="w-full border border-[#ded9cb] rounded-xl px-4 py-3 bg-white">
+            </div>
 
-        <div class="max-w-7xl mx-auto border-t border-white/15 mt-8 pt-6 text-center text-xs text-gray-400">
-            © 2026 Olive & Thyme. Restaurant concept website.
-        </div>
-    </footer>
+            <div>
+              <label for="bookingTime" class="block text-sm font-semibold mb-2">Booking Time *</label>
+              <select id="bookingTime" name="bookingTime" required
+                      class="w-full border border-[#ded9cb] rounded-xl px-4 py-3 bg-white">
+                <option value="">Select a time</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="13:00">1:00 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="21:00">9:00 PM</option>
+              </select>
+            </div>
 
+            <div>
+              <label for="guestCount" class="block text-sm font-semibold mb-2">Number of Guests *</label>
+              <select id="guestCount" name="guestCount" required
+                      class="w-full border border-[#ded9cb] rounded-xl px-4 py-3 bg-white">
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="7">7 Guests</option>
+                <option value="8">8 Guests</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="occasion" class="block text-sm font-semibold mb-2">Occasion</label>
+              <select id="occasion" name="occasion"
+                      class="w-full border border-[#ded9cb] rounded-xl px-4 py-3 bg-white">
+                <option value="Regular Dining">Regular Dining</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Family Gathering">Family Gathering</option>
+                <option value="Other Celebration">Other Celebration</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="specialRequest" class="block text-sm font-semibold mb-2">
+              Special Requests (Optional)
+            </label>
+            <textarea id="specialRequest" name="specialRequest" rows="3" maxlength="500"
+                      placeholder="Any seating preferences or special requests?"
+                      class="w-full border border-[#ded9cb] rounded-xl px-4 py-3 bg-white"></textarea>
+          </div>
+
+          <button type="submit"
+                  class="w-full bg-[#294b36] hover:bg-[#1c3827] text-white px-8 py-4 rounded-full font-semibold transition">
+            Request a Table →
+          </button>
+
+          <p class="text-xs text-gray-500 text-center">
+            This demo form shows a confirmation on this page. It does not
+            send a reservation to the restaurant.
+          </p>
+
+          <div id="bookingMessage" class="hidden rounded-xl p-5 bg-[#e3eddf] text-[#294b36]"
+               role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#172b20] text-white px-6 py-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <h2 class="text-3xl font-semibold">
+          olive<span class="text-[#e9c18e]">&</span>thyme
+        </h2>
+        <p class="text-gray-400 text-sm mt-3">Fresh flavours. Warm memories.</p>
+      </div>
+
+      <div>
+        <p class="font-semibold">Find your way</p>
+        <div class="flex flex-wrap gap-5 mt-4 text-sm text-gray-300">
+          <a href="#home" class="hover:text-[#e9c18e]">Home</a>
+          <a href="#story" class="hover:text-[#e9c18e]">Our Story</a>
+          <a href="#menu" class="hover:text-[#e9c18e]">Menu</a>
+          <a href="#reservation" class="hover:text-[#e9c18e]">Reservations</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-white/15 mt-8 pt-6 text-center text-xs text-gray-400">
+      © <span id="currentYear"></span> Olive & Thyme. Restaurant concept website.
+    </div>
+  </footer>
+
+  <script>
+    // MOBILE NAVBAR
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpening = mobileMenu.classList.contains("hidden");
+      mobileMenu.classList.toggle("hidden");
+      menuToggle.setAttribute("aria-expanded", String(isOpening));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpening ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.textContent = isOpening ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".mobile-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+      });
+    });
+
+    // MENU DATA
+    const dishes = [
+      {
+        name: "Garden Pasta",
+        category: "Main Course",
+        price: 299,
+        description: "Fresh herbs, seasonal vegetables, and homemade sauce.",
+        tag: "Chef's favourite",
+        image: "photo-1473093295043-cdd812d0e601"
+      },
+      {
+        name: "Harvest Bowl",
+        category: "Starters",
+        price: 249,
+        description: "Fresh greens, grains, and seasonal goodness.",
+        tag: "Fresh & wholesome",
+        image: "photo-1547592180-85f173990554"
+      },
+      {
+        name: "Classic Pizza",
+        category: "Main Course",
+        price: 349,
+        description: "Golden crust, tomato sauce, cheese, and aromatic herbs.",
+        tag: "Crowd favourite",
+        image: "photo-1565299624946-b28f40a0ae38"
+      },
+      {
+        name: "Bruschetta",
+        category: "Starters",
+        price: 179,
+        description: "Toasted bread topped with tomatoes, basil, and olive oil.",
+        tag: "Garden fresh",
+        image: "photo-1572695157366-5e585ab2b69f"
+      },
+      {
+        name: "Creamy Mushroom Soup",
+        category: "Starters",
+        price: 199,
+        description: "A comforting soup with mushrooms and delicate herbs.",
+        tag: "Warm & comforting",
+        image: "photo-1547592166-23ac45744acd"
+      },
+      {
+        name: "Grilled Vegetable Plate",
+        category: "Main Course",
+        price: 279,
+        description: "Seasonal vegetables grilled and served with house dressing.",
+        tag: "Garden special",
+        image: "photo-1512621776951-a57141f2eefd"
+      },
+      {
+        name: "Classic Cheesecake",
+        category: "Desserts",
+        price: 199,
+        description: "Smooth, creamy cheesecake with a buttery biscuit base.",
+        tag: "Sweet favourite",
+        image: "photo-1533134242443-d4fd215305ad"
+      },
+      {
+        name: "Chocolate Brownie",
+        category: "Desserts",
+        price: 179,
+        description: "Rich chocolate brownie for a little moment of happiness.",
+        tag: "Chocolate love",
+        image: "photo-1606313564200-e75d5e30476c"
+      },
+      {
+        name: "Fresh Fruit Tart",
+        category: "Desserts",
+        price: 189,
+        description: "A delicate pastry filled with cream and seasonal fruits.",
+        tag: "Made fresh",
+        image: "photo-1488477181946-6428a0291777"
+      },
+      {
+        name: "Fresh Lemonade",
+        category: "Drinks",
+        price: 99,
+        description: "Freshly squeezed lemon with a refreshing citrus finish.",
+        tag: "Refreshing",
+        image: "photo-1513558161293-cdaf765edfd7"
+      },
+      {
+        name: "Berry Smoothie",
+        category: "Drinks",
+        price: 149,
+        description: "A fruity blend of berries for a refreshing treat.",
+        tag: "Berry goodness",
+        image: "photo-1505252585461-04db1eb84625"
+      },
+      {
+        name: "Iced Coffee",
+        category: "Drinks",
+        price: 129,
+        description: "Chilled coffee with a smooth and creamy finish.",
+        tag: "Coffee break",
+        image: "photo-1461023058943-07fcbe16d735"
+      }
+    ];
+
+    // DISPLAY FOOD CARDS
+    const menuGrid = document.getElementById("menuGrid");
+    const menuEmpty = document.getElementById("menuEmpty");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    function renderMenu(category = "All") {
+      const filteredDishes = category === "All"
+        ? dishes
+        : dishes.filter(dish => dish.category === category);
+
+      menuGrid.innerHTML = filteredDishes.map(dish => `
+        <article class="menu-card bg-white rounded-2xl overflow-hidden group shadow-sm hover:shadow-xl transition">
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/${dish.image}?auto=format&fit=crop&w=800&q=85"
+              alt="${dish.name}"
+              loading="lazy"
+              class="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-widest text-[#a56d37] font-semibold mb-2">
+              ${dish.category}
+            </p>
+            <div class="flex justify-between items-start gap-3">
+              <h3 class="text-2xl font-semibold">${dish.name}</h3>
+              <span class="text-[#a56d37] font-bold whitespace-nowrap">₹${dish.price}</span>
+            </div>
+            <p class="text-gray-500 text-sm leading-6 mt-3">${dish.description}</p>
+            <p class="text-[#a56d37] mt-4 text-sm">✦ ${dish.tag}</p>
+          </div>
+        </article>
+      `).join("");
+
+      menuEmpty.classList.toggle("hidden", filteredDishes.length !== 0);
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        renderMenu(button.dataset.category);
+      });
+    });
+
+    renderMenu();
+
+    // RESERVATION FORM VALIDATION
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingDate = document.getElementById("bookingDate");
+    const bookingMessage = document.getElementById("bookingMessage");
+
+    // Prevent selecting a date before today.
+    const today = new Date();
+    const localToday = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, "0"),
+      String(today.getDate()).padStart(2, "0")
+    ].join("-");
+
+    bookingDate.min = localToday;
+
+    bookingForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!bookingForm.reportValidity()) return;
+
+      if (bookingDate.value < localToday) {
+        bookingDate.setCustomValidity("Please choose today or a future date.");
+        bookingDate.reportValidity();
+        bookingDate.setCustomValidity("");
+        return;
+      }
+
+      const formData = new FormData(bookingForm);
+      const name = formData.get("guestName").trim();
+      const date = formData.get("bookingDate");
+      const time = formData.get("bookingTime");
+      const guests = formData.get("guestCount");
+      const occasion = formData.get("occasion");
+
+      const [year, month, day] = date.split("-");
+      const formattedDate = new Date(
+        Number(year), Number(month) - 1, Number(day)
+      ).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+
+      const formattedTime = new Date(
+        `2000-01-01T${time}:00`
+      ).toLocaleTimeString("en-IN", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+      });
+
+      bookingMessage.innerHTML = `
+        <h3 class="text-xl font-bold mb-2">Thank you, ${escapeHTML(name)}! 🌿</h3>
+        <p>Your reservation request details are:</p>
+        <p class="mt-2"><strong>Date:</strong> ${formattedDate}</p>
+        <p><strong>Time:</strong> ${formattedTime}</p>
+        <p><strong>Guests:</strong> ${guests}</p>
+        <p><strong>Occasion:</strong> ${escapeHTML(occasion)}</p>
+        <p class="mt-3 text-sm">
+          This is a demo confirmation only. Your booking has not been
+          sent to the restaurant.
+        </p>
+      `;
+
+      bookingMessage.classList.remove("hidden");
+      bookingMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    // Escape user-provided text before inserting it into the confirmation.
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+
+    // AUTOMATIC COPYRIGHT YEAR
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
