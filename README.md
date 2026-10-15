@@ -1,24 +1,29 @@
 # 🌿 Olive & Thyme – Restaurant Website
 
-A modern, elegant, and responsive restaurant website built using **HTML5 and Tailwind CSS**. Olive & Thyme showcases a beautiful restaurant experience with a stylish homepage, restaurant story, food menu, special offers, and table reservation section.
+A modern, elegant, and responsive restaurant website built using **HTML5, Tailwind CSS, and JavaScript**. Olive & Thyme offers a beautiful dining experience through an attractive homepage, restaurant story, interactive food menu, special dining section, and table reservation form.
 
 ## ✨ Features
 
-- 🏠 **Home Page** – Attractive hero section with a background image and welcome message.
-- 🌿 **Our Story** – Introduction to the restaurant and its philosophy.
-- 🍽️ **Food Menu** – Displays food items, descriptions, and prices.
-- ⭐ **Special Offers** – Highlights the restaurant dining experience.
-- 📅 **Table Reservation** – Provides a reservation enquiry link through email.
-- 📱 **Responsive Design** – Layout adapts to desktop, tablet, and mobile screens.
-- 🎨 **Modern UI** – Elegant typography, green and cream colours, and smooth hover effects.
-- 🖼️ **Food Photography** – High-quality restaurant and food images.
-- 🔗 **Smooth Navigation** – Navigation links scroll to different sections of the page.
+- 🏠 **Home Page** – Attractive hero section with a restaurant background image and welcome message.
+- 🌿 **Our Story** – Introduces the restaurant's philosophy and dining experience.
+- 🍽️ **Interactive Food Menu** – Displays multiple food items with images, descriptions, and prices.
+- 🏷️ **Food Category Filters** – Filter menu items by Starters, Main Course, Desserts, and Drinks.
+- 📱 **Responsive Navigation Bar** – Mobile-friendly hamburger menu with smooth navigation.
+- ⭐ **Special Offers Section** – Highlights the restaurant's dining experience.
+- 📅 **Table Reservation Form** – Collects guest details, booking date, time, number of guests, and special requests.
+- ✅ **Form Validation** – Checks required fields and prevents selecting past booking dates.
+- 💬 **Booking Confirmation** – Displays a confirmation message with the submitted reservation details.
+- 🎨 **Modern UI** – Elegant typography, green and cream colours, rounded cards, and hover effects.
+- 🖼️ **Food Photography** – High-quality restaurant and food images from Unsplash.
+- 🔗 **Smooth Navigation** – Navigation links scroll to the relevant sections.
+- 📆 **Dynamic Copyright Year** – Automatically displays the current year in the footer.
 
 ## 🛠️ Technologies Used
 
 - HTML5
 - Tailwind CSS
 - CSS3
+- JavaScript
 - Google Fonts
 - Unsplash Images
 
@@ -34,30 +39,42 @@ olive-and-thyme/
 
 1. Download or clone this repository.
 2. Open the project folder in Visual Studio Code.
-3. Open `index.html` in your browser.
-4. Alternatively, use the **Live Server** extension in VS Code.
+3. Open `index.html`.
+4. Right-click the file and select **Open with Live Server**, or open it directly in your browser.
+5. Explore the menu filters and test the reservation form.
 
 **Note:** An internet connection is required to load Tailwind CSS, Google Fonts, and external images.
 
 ## 🍴 Menu Highlights
 
-| Food Item | Price |
-|---|---:|
-| Garden Pasta | ₹299 |
-| Harvest Bowl | ₹249 |
-| Classic Pizza | ₹349 |
+| Food Item | Category | Price |
+|---|---|---:|
+| Garden Pasta | Main Course | ₹299 |
+| Harvest Bowl | Starters | ₹249 |
+| Classic Pizza | Main Course | ₹349 |
+| Bruschetta | Starters | ₹179 |
+| Creamy Mushroom Soup | Starters | ₹199 |
+| Grilled Vegetable Plate | Main Course | ₹279 |
+| Classic Cheesecake | Desserts | ₹199 |
+| Chocolate Brownie | Desserts | ₹179 |
+| Fresh Fruit Tart | Desserts | ₹189 |
+| Fresh Lemonade | Drinks | ₹99 |
+| Berry Smoothie | Drinks | ₹149 |
+| Iced Coffee | Drinks | ₹129 |
 
 ## 🎯 Project Objective
 
-The main objective of this project is to develop an attractive restaurant website that presents menu items, shares the restaurant's story, highlights special offers, and allows visitors to enquire about table reservations.
+The objective of this project is to create an attractive, user-friendly restaurant website that showcases menu items, presents the restaurant's story, highlights special dining experiences, and allows visitors to submit table reservation requests through an interactive form.
 
 ## 🔮 Future Enhancements
 
-- Add an interactive food menu with categories.
-- Create a working table reservation form.
+- Connect the reservation form to a backend using Python Django.
+- Integrate MySQL to store and manage table reservations.
+- Send booking confirmation emails to customers.
 - Add customer reviews and ratings.
-- Integrate a backend and database to manage reservations.
-- Add an online food ordering feature.
+- Implement online food ordering and shopping cart functionality.
+- Add an admin dashboard to manage menu items and bookings.
+- Integrate real-time table availability checking.
 
 ## 👩‍💻 Author
 
