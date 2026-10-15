@@ -76,12 +76,4 @@ The objective of this project is to create an attractive, user-friendly restaura
 - Add an admin dashboard to manage menu items and bookings.
 - Integrate real-time table availability checking.
 
-## 👩‍💻 Author
 
-**Lakshmi**
-
-Aspiring Full Stack Developer
-
----
-
-⭐ If you like this project, consider giving the repository a star!
